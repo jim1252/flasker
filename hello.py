@@ -11,6 +11,8 @@ from datetime import date
 #from wtforms.widgets import TextArea
 from webforms import LoginForm, PostForm, UserForm, NamerForm, PasswordForm
 
+localStorage = {}
+
 # Create a Flask instance
 app = Flask(__name__)
 #add database
@@ -166,7 +168,9 @@ def edit_post(id):
 # Add Post Page
 @app.route('/add-post', methods=['GET', 'POST'])
 #@login_required
+
 def add_post():
+	print(localStorage)
 	form = PostForm()
 
 	if form.validate_on_submit():

@@ -9,16 +9,28 @@
     <!-- My CSS -->
     <link href="{{ url_for('static', filename='css/style.css')}} " rel="stylesheet" >
 
+    <script> function goBack() { window.history.back() } </script>
+
     <title>Flasker!!!!</title>
+
 
   </head>
   <body>
     {% include 'navbar.html' %}
     </br>
+    <p id="demo"></p>
+  <script>
+  document.getElementById("demo").innerHTML = 
+  "The full URL of this page is:<br>" + window.location.href;
+  </script>
+    <script > { localStorage.update({"prev_page": location.href}) }  </script>
+    
+
     <div class="container">
       {% block content %}
       {% endblock %}
     </div>
+    <input type="button" value="Back" onclick="goBack()">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
   
